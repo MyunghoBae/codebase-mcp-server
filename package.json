@@ -1,15 +1,15 @@
 {
-	"name": "xapi-mcp-server",
-	"description": "xAPI Model Context Protocol Server",
+	"name": "codebase-mcp-server",
+	"description": "Codebase Model Context Protocol Server",
 	"version": "0.0.1",
 	"main": "dist/index.js",
 	"author": "MyunghoBae <mac.bae@goorm.io>",
-	"homepage": "https://github.com/MyunghoBae/xapi-mcp-server",
+	"homepage": "https://github.com/MyunghoBae/codebase-mcp-server",
 	"repository": {
-		"url": "https://github.com/MyunghoBae/xapi-mcp-server.git"
+		"url": "https://github.com/MyunghoBae/codebase-mcp-server.git"
 	},
 	"bin": {
-		"xapi-mcp-server": "dist/index.js"
+		"codebase-mcp-server": "dist/index.js"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -27,6 +27,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "^1.11.4",
+		"dependency-tree": "^11.1.1",
+		"minimatch": "^9.0.5",
 		"zod": "^3.25.7"
 	},
 	"devDependencies": {
