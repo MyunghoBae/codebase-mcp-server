@@ -27,7 +27,7 @@ What actually happened.
 
 ### Environment
 
-- xAPI MCP Server Version: [e.g., 1.0.0]
+- Codebase MCP Server Version: [e.g., 1.0.0]
 - Node.js Version: [e.g., 18.0.0]
 - OS: [e.g., Ubuntu 22.04]
 - Database Type: [e.g., MongoDB 6.0]

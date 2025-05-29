@@ -1,10 +1,10 @@
-# Contributing to xAPI MCP Server
+# Contributing to Codebase MCP Server
 
-Thank you for your interest in contributing to the xAPI MCP Server project! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to the Codebase MCP Server project! This document provides guidelines and instructions for contributing.
 
 ## Project Overview
 
-This project implements a Model Context Protocol (MCP) server for xAPI data management and analysis, enabling AI assistants to interact with learning records through natural language.
+This project implements a Model Context Protocol (MCP) server for Codebase data management and analysis, enabling AI assistants to interact with learning records through natural language.
 
 ## Development Setup
 
@@ -19,8 +19,8 @@ This project implements a Model Context Protocol (MCP) server for xAPI data mana
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/xapi-mcp-server.git
-    cd xapi-mcp-server
+    git clone https://github.com/yourusername/codebase-mcp-server.git
+    cd codebase-mcp-server
     ```
 
 2. Install dependencies:
@@ -33,8 +33,8 @@ This project implements a Model Context Protocol (MCP) server for xAPI data mana
     ```bash
     {
        "mcpServers": {
-          "xAPI": {
-             "command": "/path/to/xapi-mcp-server/dist/index.js"
+          "Codebase": {
+             "command": "/path/to/codebase-mcp-server/dist/index.js"
           }
        }
     }
@@ -101,25 +101,7 @@ git commit -m "docs(api): add new endpoints"
 
 ### Adding New Features
 
-#### Data Source Adapters
-
-When implementing a new data source adapter:
-
-```typescript
-interface XAPISourceAdapter {
-	connect(): Promise<void>;
-	detectXAPICollections(): Promise<string[]>;
-	findStatements(query: any): Promise<any[]>;
-}
-```
-
-1. Create new adapter in `src/adapters/`
-2. Implement required interfaces
-3. Add connection management
-4. Include validation logic
-5. Write tests in `tests/adapters/`
-
-#### Analysis Tools
+#### Tools
 
 When adding new analysis features:
 
@@ -221,8 +203,8 @@ All PRs run through "Code Health" workflow:
 
 ### License
 
-By contributing to xAPI MCP Server, you agree that your contributions will be licensed under the project's MIT License. See the [LICENSE](LICENSE) file for details.
+By contributing to Codebase MCP Server, you agree that your contributions will be licensed under the project's MIT License. See the [LICENSE](LICENSE) file for details.
 
 ### Questions?
 
-Need help? Open an issue in our [GitHub repository](https://github.com/yourusername/xapi-mcp-server/issues)
+Need help? Open an issue in our [GitHub repository](https://github.com/yourusername/codebase-mcp-server/issues)
