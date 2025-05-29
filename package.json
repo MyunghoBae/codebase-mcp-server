@@ -24,6 +24,28 @@
 		"format": "prettier . --write"
 	},
 	"license": "MIT",
+	"keywords": [
+		"MCP",
+		"Model Context Protocol",
+		"filesystem",
+		"dependency tree",
+		"file management",
+		"file search",
+		"file metadata",
+		"dependency analysis",
+		"LLM integration",
+		"secure filesystem",
+		"efficient filesystem",
+		"node.js",
+		"typescript",
+		"tool",
+		"dependency resolution",
+		"config file search",
+		"directory listing",
+		"file reading",
+		"file searching",
+		"file metadata retrieval"
+	],
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "^1.11.4",
 		"dependency-tree": "^11.1.1",
