@@ -66,6 +66,14 @@ First, install the Codebase MCP server with your client. A typical configuration
 
 Or, you can install the Codebase MCP server with Docker.
 
+After cloning this repository, build the Docker image:
+
+```bash
+docker build -t mcp/codebase -f .
+```
+
+And then add the following to your MCP servers file:
+
 ```json
 {
 	"mcpServers": {
