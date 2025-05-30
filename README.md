@@ -58,7 +58,7 @@ First, install the Codebase MCP server with your client. A typical configuration
 	"mcpServers": {
 		"Codebase": {
 			"command": "npx",
-			"args": ["codebase-mcp-server@latest"]
+			"args": ["codebase-mcp-server@latest", "/path/to/your/codebase"]
 		}
 	}
 }
