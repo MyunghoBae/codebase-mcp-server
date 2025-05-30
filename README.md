@@ -32,6 +32,7 @@
 ## 📋 Supported Languages
 
 - **JavaScript/TypeScript**
+- **CSS / CSS Preprocessors**
 
 ## 🛠️ Tools
 
