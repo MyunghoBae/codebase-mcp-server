@@ -1,7 +1,7 @@
 {
 	"name": "codebase-mcp-server",
 	"description": "Codebase Model Context Protocol Server",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "dist/index.js",
 	"author": "MyunghoBae <mac.bae@goorm.io>",
 	"homepage": "https://github.com/MyunghoBae/codebase-mcp-server",
