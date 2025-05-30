@@ -22,7 +22,7 @@ const config: Config = {
 
 // Create server instance
 const server = new McpServer({
-	name: 'weather',
+	name: 'codebase',
 	version: '1.0.0',
 	capabilities: {
 		resources: {},

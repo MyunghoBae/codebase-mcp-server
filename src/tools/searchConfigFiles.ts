@@ -14,10 +14,10 @@ export class SearchConfigFilesTool extends ToolBase {
 	protected description =
 		'Searches for configuration files within the root directory, based on the provided target configuration files and exclude patterns. Returns the paths to the found configuration files in the format { config_a: path/of/config/a, config_b: path/of/config/b, ... }. This tool helps in locating specific configuration files within the project';
 	protected argsShape = z.object({
-		targetConfigFiles: z
+		targetConfigFilePatterns: z
 			.string()
 			.describe(
-				'A comma-separated list of target configuration files to search for. This should be a list of file names or patterns',
+				'A Comma-separated configuration file pattern list to search for. Supports file names (tsconfig.json) and glob patterns (webpack.config.*, *.config.js, **/*.config.json)',
 			),
 		excludePatterns: z
 			.string()
@@ -27,25 +27,23 @@ export class SearchConfigFilesTool extends ToolBase {
 	});
 
 	protected async execute({
-		targetConfigFiles,
+		targetConfigFilePatterns,
 		excludePatterns,
 	}: z.infer<typeof this.argsShape>): Promise<CallToolResult> {
-		const searchConfigFiles = targetConfigFiles.split(',').map(async (file) => {
-			const validPath = await validatePath(this.config.rootDirectory, file.trim());
-			const result = await this.searchFile(this.config.rootDirectory, validPath, excludePatterns.split(','));
+		const searchConfigFilesPromises = targetConfigFilePatterns.split(',').map(async (pattern) => {
+			const result = await this.searchFile(this.config.rootDirectory, pattern.trim(), excludePatterns.split(','));
 
-			return result ? [[file.trim(), result]] : null;
+			return { pattern: pattern.trim(), filePath: result || 'Not found' };
 		});
 
-		const allResults = await Promise.all(searchConfigFiles);
-		const filteredResults = allResults.filter((result) => result !== null);
-		const resultObject = Object.fromEntries(filteredResults);
+		const allResults = await Promise.all(searchConfigFilesPromises);
+		const resultText = JSON.stringify(allResults, null, 2);
 
 		return {
 			content: [
 				{
 					type: 'text',
-					text: JSON.stringify(resultObject, null, 2),
+					text: resultText,
 				},
 			],
 		};
@@ -75,7 +73,10 @@ export class SearchConfigFilesTool extends ToolBase {
 						continue;
 					}
 
-					if (entry.name.toLowerCase().includes(pattern.toLowerCase())) {
+					if (
+						entry.name.toLowerCase() === pattern.toLowerCase() ||
+						minimatch(entry.name, pattern, { nocase: true })
+					) {
 						return fullPath;
 					}
 
