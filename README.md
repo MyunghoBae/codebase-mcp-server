@@ -14,9 +14,12 @@
 
 <p align="center">
   <a href="#-key-features">Key Features</a> •
-  <a href="#-quickstart">QuickStart</a> •
-  <a href="#%EF%B8%8F-configuration">Configuration</a> •
+  <a href="#-supported-languages">Supported Languages</a> •
   <a href="#%EF%B8%8F-tools">Tools</a> •
+  <a href="#-quickstart">QuickStart</a> •
+  <a href="#-build">Build</a> •
+  <a href="#-contributing">Contributing</a>
+
 </p>
 
 ## 🌟 Key Features
@@ -25,6 +28,10 @@
 - **Efficient File Management**: Provides tools for reading and searching files.
 - **Detailed Metadata**: Retrieves comprehensive file metadata including size, creation time, last modified time, permissions, and type.
 - **Dependency Analysis**: Traverses and analyzes dependency trees within projects.
+
+## 📋 Supported Languages
+
+- **JavaScript/TypeScript**
 
 ## 🛠️ Tools
 
