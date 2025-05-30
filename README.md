@@ -55,12 +55,12 @@ First, install the Codebase MCP server with your client. A typical configuration
 
 ```json
 {
-	"mcpServers": {
-		"Codebase": {
-			"command": "npx",
-			"args": ["codebase-mcp-server@latest", "/path/to/your/codebase"]
-		}
-	}
+  "mcpServers": {
+    "Codebase": {
+      "command": "npx",
+      "args": ["codebase-mcp-server@latest", "/path/to/your/codebase"]
+    }
+  }
 }
 ```
 
@@ -76,22 +76,22 @@ And then add the following to your MCP servers file:
 
 ```json
 {
-	"mcpServers": {
-		"Codebase": {
-			"command": "docker",
-			"args": [
-				"run",
-				"-i",
-				"--rm",
-				"--mount",
-				"type=bind,src=/path/to/your/codebase/dir,dst=/projects/path/to/your/codebase/dir,ro",
-				"--mount",
-				"type=bind,src=/path/to/some/file.txt,dst=/projects/path/to/some/file.txt",
-				"mcp/codebase",
-				"/projects"
-			]
-		}
-	}
+  "mcpServers": {
+    "Codebase": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--mount",
+        "type=bind,src=/path/to/your/codebase/dir,dst=/projects/path/to/your/codebase/dir,ro",
+        "--mount",
+        "type=bind,src=/path/to/some/file.txt,dst=/projects/path/to/some/file.txt",
+        "mcp/codebase",
+        "/projects"
+      ]
+    }
+  }
 }
 ```
 
@@ -112,12 +112,12 @@ Go to Cursor Settings -> MCP -> Add new MCP Server. Use following configuration:
 
 ```json
 {
-	"mcpServers": {
-		"Codebase": {
-			"command": "npx",
-			"args": ["codebase-mcp-server@latest"]
-		}
-	}
+  "mcpServers": {
+    "Codebase": {
+      "command": "npx",
+      "args": ["codebase-mcp-server@latest"]
+    }
+  }
 }
 ```
 
@@ -129,12 +129,12 @@ Follow Windsuff MCP documentation. Use following configuration:
 
 ```json
 {
-	"mcpServers": {
-		"Codebase": {
-			"command": "npx",
-			"args": ["codebase-mcp-server@latest"]
-		}
-	}
+  "mcpServers": {
+    "Codebase": {
+      "command": "npx",
+      "args": ["codebase-mcp-server@latest"]
+    }
+  }
 }
 ```
 
@@ -146,12 +146,12 @@ Follow the MCP install guide, use following configuration:
 
 ```json
 {
-	"mcpServers": {
-		"Codebase": {
-			"command": "npx",
-			"args": ["codebase-mcp-server@latest"]
-		}
-	}
+  "mcpServers": {
+    "Codebase": {
+      "command": "npx",
+      "args": ["codebase-mcp-server@latest"]
+    }
+  }
 }
 ```
 
