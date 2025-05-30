@@ -36,6 +36,7 @@
 
 ## 🛠️ Tools
 
+- `get-project-basics`: Retrieves essential project information including package.json details, directory structure.
 - `search-config-files`: Searches for configuration files within the root directory and returns their paths.
 - `get-dependency-tree`: Traverses the dependency tree based on the given file path and root directory, and returns the traversal results.
 - `list-directory`: Lists the contents of a specified directory, distinguishing between files and directories.
