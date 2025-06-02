@@ -1,14 +1,20 @@
 {
 	"compilerOptions": {
 		"target": "ES2022",
-		"module": "Node16",
-		"moduleResolution": "Node16",
-		"outDir": "./dist",
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
 		"rootDir": "./src",
+		"outDir": "./dist",
 		"strict": true,
+		"strictNullChecks": true,
 		"esModuleInterop": true,
+		"sourceMap": true,
 		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true
+		"resolveJsonModule": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
+		"typeRoots": ["./node_modules/@types", "./src/types"],
+		"types": ["node"]
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]
