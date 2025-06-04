@@ -6,11 +6,16 @@ import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 
 import { ToolBase } from './toolBase.js';
 import { normalizePath } from '../utils/path.js';
+import { FileBasedCache } from '../utils/cache.js';
 
 import type { DependencyNodeId, DependencyTree, DependencyNode } from '../types/dependency.js';
 import type { FileContentsMap, ReadFilePromiseMap } from '../types/file.js';
+import { Config } from '../types/config.js';
 
 export class GetDependencyTreeTool extends ToolBase {
+	private cache: FileBasedCache<DependencyTree>;
+	private CACHE_EXPIRY = 5 * 60 * 1000; // 5분
+
 	protected name = 'get-dependency-tree';
 	protected description =
 		'Traverses the dependency tree based on the given file path and root directory, and returns the traversal results. This tool helps in understanding the dependency relationships within the project. Optionally accepts paths to RequireJS, Webpack, and TypeScript configuration files to enhance dependency resolution';
@@ -25,12 +30,34 @@ export class GetDependencyTreeTool extends ToolBase {
 		tsConfig: z.string().optional().describe('The path to the TypeScript configuration file'),
 	});
 
+	constructor(config: Config) {
+		super(config);
+
+		this.cache = new FileBasedCache<DependencyTree>(config.rootDirectory);
+
+		setInterval(() => {
+			this.cache.cleanup();
+		}, this.CACHE_EXPIRY);
+	}
+
 	protected async execute({
 		filePath,
 		requireConfig,
 		webpackConfig,
 		tsConfig,
 	}: z.infer<typeof this.argsShape>): Promise<CallToolResult> {
+		const cachedResult = await this.cache.get(filePath, this.constructor.name);
+		if (cachedResult) {
+			return {
+				content: [
+					{
+						type: 'text',
+						text: JSON.stringify(cachedResult, null, 2),
+					},
+				],
+			};
+		}
+
 		const dependencies = dependencyTree({
 			filename: normalizePath(filePath),
 			directory: this.config.rootDirectory,
@@ -40,6 +67,8 @@ export class GetDependencyTreeTool extends ToolBase {
 		}) as DependencyTree;
 
 		const result = await this.parseDependencies(dependencies);
+
+		await this.cache.set(filePath, dependencies, this.constructor.name);
 
 		return {
 			content: [
