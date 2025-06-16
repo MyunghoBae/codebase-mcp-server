@@ -22,7 +22,9 @@
 		"build": "rm -rf dist && tsc && chmod 755 dist/index.js",
 		"inspect": "npm run build && mcp-inspector -- dist/index.js",
 		"lint": "eslint src/**/*.ts --fix",
-		"format": "prettier . --write"
+		"lint:check": "eslint src/**/*.ts",
+		"format": "prettier . --write",
+		"format:check": "prettier -c ."
 	},
 	"license": "MIT",
 	"keywords": [
