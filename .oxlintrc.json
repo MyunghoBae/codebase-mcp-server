@@ -11,7 +11,6 @@
 		"setInterval": "readonly"
 	},
 	"rules": {
-		"no-unused-vars": "error",
 		"constructor-super": "error",
 		"no-case-declarations": "error",
 		"no-empty": "error",
@@ -20,9 +19,6 @@
 		"no-redeclare": "error",
 		"no-undef": "error",
 		"no-regex-spaces": "error",
-		"no-dupe-keys": "error",
-		"no-dupe-class-members": "error",
-		"no-dupe-else-if": "error",
 		"no-unexpected-multiline": "error",
 		"no-unreachable": "error"
 	}
