@@ -1,0 +1,35 @@
+name: Audit Check
+
+on:
+    push:
+        branches:
+            - main
+            - develop
+    pull_request:
+        branches:
+            - main
+            - develop
+    workflow_dispatch:
+
+jobs:
+    check-audit:
+        name: Audit packages
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Audit packages
+              run: npm audit --audit-level moderate
+              env:
+                  CI: true
+
+    snky-scanning:
+        name: Snyk Scanning
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Run Snyk to check for vulnerabilities
+              uses: snyk/actions/node@master
+              env:
+                  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+              with:
+                  args: --severity-threshold=medium
