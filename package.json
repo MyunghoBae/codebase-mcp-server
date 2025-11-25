@@ -56,7 +56,7 @@
 		"zod": "^3.25.7"
 	},
 	"devDependencies": {
-		"@modelcontextprotocol/inspector": "^0.14.1",
+		"@modelcontextprotocol/inspector": "^0.16.6",
 		"@types/node": "^22.15.24",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.0",
